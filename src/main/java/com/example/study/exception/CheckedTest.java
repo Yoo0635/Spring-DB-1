@@ -19,8 +19,11 @@ public class CheckedTest {
                     repository.call();
                 } catch (MyCheckedException e) {
                     log.info("예외 처리, message={}", e.getMessage(), e);
-                    throw new RuntimeException(e);
                 }
+            }
+
+            public void callThrow() throws MyCheckedException{
+                repository.call();
             }
         }
 
@@ -29,4 +32,6 @@ public class CheckedTest {
             throw new MyCheckedException("ex");
         }
     }
+
+
 }
